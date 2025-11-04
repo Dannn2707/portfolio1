@@ -1,0 +1,250 @@
+
+:root{
+    --mainFont: sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    position: relative;
+}
+
+.header_homePage{
+    position: fixed;
+    width: 100vw;
+    height: 5vh;
+    background-color: rgba(0, 0, 0, 0.434);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+.div_links{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.div_links a{
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.home_page{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(25, 25, 25);
+    overflow: hidden;
+}
+
+
+.container_blob{
+    animation: moveShape 18s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+}
+
+.blob{
+    position: absolute;
+    width: 500px;
+    aspect-ratio: 1/1;
+    background: linear-gradient(
+        rgba(20, 202, 238, 0.5) 0%, 
+        rgba(41, 116, 221, 0.8) 40%, 
+        rgba(126, 26, 247, 0.8) 100%
+    );
+    /* border-radius: 80% 40% 60% 75% / 55% 70% 60% 85%; */
+    filter: blur(40px);
+    animation: changeShape 6s linear infinite, rotateShape 12s linear infinite;
+}
+
+@keyframes rotateShape {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moveShape {
+    0%,
+    100%{
+        transform: translateX(20%, 0);
+    }
+    25%{
+        transform: translate(35%, 10vh);
+    }
+    50%{
+        transform: translate(50%, 20vh);
+    }
+    75%{
+        transform: translate(25%, 30vh);
+    }
+}
+
+@keyframes changeShape {
+    0%{
+         border-radius: 50% 30% 70% 55% / 85% 90% 30% 55%;
+    }
+    25%{
+         border-radius: 50% 47% 90% 45% / 75% 80% 30% 95%;
+    }
+    50%{
+         border-radius: 50% 20% 60% 45% / 25% 90% 40% 85%;
+    }
+    75%{
+         border-radius: 60% 50% 20% 45% / 55% 70% 20% 85%;
+    }
+    100%{
+          border-radius: 50% 30% 70% 55% / 85% 90% 30% 55%;
+    }
+}
+
+@media (max-width: 1000px){
+    .blob{
+        width: 350px;
+    }
+
+    @keyframes moveShape {
+    0%,
+    100%{
+        transform: translateX(20%, 0);
+    }
+    25%{
+        transform: translate(35%, 30vh);
+    }
+    50%{
+        transform: translate(50%, 50vh);
+    }
+    75%{
+        transform: translate(25%, 60vh);
+    }
+}
+}
+
+@media (max-width: 600px){
+    .blob{
+        width: 250px;
+    }
+}
+
+.container_main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.gallary-container{
+    display: flex;
+    align-items: center;
+    width: 400px;
+    margin: 0 auto;
+    max-width: 1000px;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.gallery{
+    width: 100%;  
+    height: 20vh;
+}
+
+.gallery_item{
+    height: 200px;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.3 ease-in-out;
+    width: 330px;
+    z-index: 20;
+    border-radius: 15px;
+    background-size: contain;
+}
+
+.gallery_item_1{
+    left: 15%;
+    opacity: 0.4;
+    transform: translateX(-50%);
+}
+
+.gallery_item_2, .gallery_item_4{
+    height: 250px;
+    opacity: 0.8;
+    z-index: 35;
+    width: 380px;
+}
+
+.gallery_item_2{
+    left: 30%;
+    transform: translateX(-50%);
+}
+
+.gallery_item_3{
+    box-shadow: -2px 5px 20px 20px rgba(0, 0, 0, 0.506);
+    height: 300px;
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 430px;
+    z-index: 40;
+}
+
+.gallery_item_4{
+    left: 70%;
+    transform: translateX(-50%);
+}
+
+.gallery_item_5{
+    left: 85%;
+    transform: translateX(-50%);
+    opacity: .4;
+}
+
+.gallary-controls{
+    display: flex;
+    justify-content: center;
+    margin: 0px 0;
+    width: 330px;
+    z-index: 20;
+    border-radius: 20px;
+    background-size: contain;
+}
+
+
+.gallary-controls button{
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 30px;
+    margin: 0 50px;
+    padding: 0 12px;
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.control-button:focus{
+    outline: none;
+}
+
+.gallary-controls-previous{
+    position: relative;
+}
+
+
+.div_home_text{
+    width: 50%;
+    text-align: center;
+    color: #fff;
+    z-index: 20;
+}
+
+
